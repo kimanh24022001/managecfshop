@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ManageCoffeeShop.Models.Table>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Table</h2>
+<button class="btn btn-primary" style="margin: 10px auto; color: white; text-decoration: none; "> @Html.ActionLink("Create New", "Create", null, new { style = "color:white" })</button>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameTable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusTable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UploadFile)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameTable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusTable)
+            </td>
+            <td>
+                <img src="@Url.Content(item.UploadFile)" width="100" heigth="100">
+            </td>
+            <td>
+                <button class="btn btn-success">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { style = "color:white" })
+                </button>
+                <button class="btn btn-warning">
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { style = "color:white" })
+                </button>
+                <button class="btn btn-danger">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { style = "color:white" })
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-primary" style="margin: 10px auto; color: white; text-decoration: none; ">@Html.ActionLink("Select Table", "SelectTable", new { tb = item.NameTable }, new { style = "color:white" })</button>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,9 @@
+﻿@Html.AntiForgeryToken()
+
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink("Hello Admin " + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li>@Html.ActionLink("Manage", "Index", "Accounts", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>

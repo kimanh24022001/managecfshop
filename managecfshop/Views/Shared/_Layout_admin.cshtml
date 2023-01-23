@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title - Coffee-Shop</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar-black navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar">j</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img style="height:50px;width:50px" src="~/coffee-shop/logo.png" />
+                @Html.ActionLink("Coffee Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink("Hello Admin " + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>
+                    <li>@Html.ActionLink("Manage", "Index", "Accounts", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>>@Html.ActionLink("Log Off", "_Layout")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  <!-- Sidebar -->
+            <div class=" navbar-inverse ">
+                <div class="w3-sidebar w3-light-gray w3-bar-block" style="width:20%;background-color:darkgray;color:white;font-weight:200;height:100%">
+                    <ul>
+                        <li class="w3-bar-item w3-button" onclick="openLink(event, 'Fade')">@Html.ActionLink("Login Histories", "Index", "ABCs", null, new { style = "color:black" })</li>
+                        <li class="w3-bar-item w3-button" onclick="openLink(event, 'Fade')">@Html.ActionLink("Bill Information", "Index", "BillInfors", null, new { style = "color:black" })</li>
+                        <li class="w3-bar-item w3-button" onclick="openLink(event, 'Fade')">@Html.ActionLink("Categories", "Index", "Categories", null, new { style = "color:black" })</li>
+                        <li class="w3-bar-item w3-button" onclick="openLink(event, 'Fade')">@Html.ActionLink("Menu", "Index", "SelectMenus", null, new { style = "color:black" })</li>
+                        <li class="w3-bar-item w3-button" onclick="openLink(event, 'Fade')">@Html.ActionLink("Table", "Index", "Tables", null, new { style = "color:black" })</li>
+                        <li class="w3-bar-item w3-button" onclick="openLink(event, 'Fade')">@Html.ActionLink("Bill", "Index", "Bills", null, new { style = "color:black" })</li>
+
+                    </ul>
+                </div>
+            </div>
+    
+        <div class="container body-content" style="margin-left: 20%; width: 80%; margin-bottom: 0">
+            <img src="~/coffee-shop/nhanvien1.jpg" />
+            <hr />
+            <footer>
+                <p style="margin-top:300px">&copy; @DateTime.Now.Year - Coffee Shop</p>
+            </footer>
+        </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+
+</html>

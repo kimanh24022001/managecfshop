@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ManageCoffeeShop.Models.BillInfor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bill Information</h2>
+
+<p>
+    @Html.ActionLink("Select Menu", "Index", "SelectMenus")
+</p>
+<button class="btn btn-success" style="margin: 10px auto; color: white; text-decoration: none; ">@Html.ActionLink("Export To CSV", "ExportToCSV", null, new { style = "color:white" })</button>
+<table class="table" id='dataTable'>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Food)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+
+                <button class="btn btn-success">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { style = "color:white" })
+                </button>
+                <button class="btn btn-warning">
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { style = "color:white" })
+                </button>
+                <button class="btn btn-danger">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { style = "color:white" })
+                </button>
+            </td>
+        </tr>
+    }
+    <tfoot>
+        <tr>
+            <td>Total Price</td>
+            <td id="total">@Model.Sum(i => i.Price * i.Amount)</td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<button class="btn btn-primary" style="margin: 10px auto; color: white; text-decoration: none; ">@Html.ActionLink("Select A Table", "Index", "Tables", null, new { style = "color:white" })</button>
+@foreach (var item in Model)
+{@Html.DisplayFor(modelItem => item.SelectedNameTable)
+break;
+}
+<div>Time CheckIn: @DateTime.Now</div>
+<button class="btn btn-primary" style="margin: 10px auto; color: white; text-decoration: none; ">@Html.ActionLink("Create A New Bill", "DeleteAll", null, new { style = "color:white" })</button>

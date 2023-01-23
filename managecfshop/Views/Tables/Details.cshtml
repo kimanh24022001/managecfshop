@@ -1,0 +1,50 @@
+﻿@model ManageCoffeeShop.Models.Table
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameTable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameTable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusTable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusTable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadFile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UploadFile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedNameTable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedNameTable)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
